@@ -1,0 +1,8 @@
+streamlit
+streamlit-option-menu
+openmeteo-requests
+retry-requests
+requests-cache
+pandas
+numpy
+pytz
