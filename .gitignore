@@ -9,3 +9,11 @@ poetry.lock
 .idea/
 .vscode/
 *.sqlite3
+".cache.sqlite" 
+".streamlit/secrets.toml" 
+"__pycache__/" 
+"*.pyc" 
+"venv/" 
+".venv/" 
+".streamlit/secrets.toml" 
+".cache.sqlite" 
