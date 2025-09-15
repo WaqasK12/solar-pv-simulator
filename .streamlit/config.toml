@@ -1,0 +1,3 @@
+[cache]
+data.max_entries = 200
+data.persist = true

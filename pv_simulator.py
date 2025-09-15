@@ -80,7 +80,6 @@ def get_weather_data(latitude, longitude,tilt, azimuth, start_date="2024-01-01",
 
 
 
-
 def map_azimuth_to_api_angle(conventional_angle):
     """
     Converting conventional compass direction (0° = North, 90° = East, 180° = South, 270° = West)

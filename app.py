@@ -37,16 +37,11 @@ st.markdown("""
 # Only run this part if the user is logged in
 if st.session_state.get("logged_in"):
 
-    # # Sidebar logout button
-    # if st.sidebar.button("🚪 Logout"):
-    #     st.session_state["logged_in"] = False
-    #     st.rerun()
-
     # Sidebar menu
     with st.sidebar:
         selected = option_menu(
             "Navigation",
-            ["Dashboard", "Historical Data", "Reports", "Settings"],
+            ["Dashboard", "Historical Data", "Forecast evaluator", "Settings"],
             icons=["bar-chart", "plus-circle", "clock-history", "file-earmark-text", "gear"],
             menu_icon="cast",
             default_index=0,
@@ -63,7 +58,7 @@ if st.session_state.get("logged_in"):
     page_module_map = {
         "Dashboard": "components.dashboard",
         "Historical Data": "components.history",
-        "Reports": "components.reports",
+        "Forecast evaluator": "components.reports",
         "Settings": "components.settings",
     }
 
