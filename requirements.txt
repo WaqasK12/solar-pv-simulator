@@ -6,3 +6,5 @@ requests-cache
 pandas
 numpy
 pytz
+matplotlib
+sqlalchemy
