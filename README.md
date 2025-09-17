@@ -1,3 +1,3 @@
 "# Solar PV Simulator" 
 
-You can run the code using "streamlit run aap.py"
+You can run the code using "streamlit run app.py"
