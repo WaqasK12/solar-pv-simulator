@@ -149,13 +149,28 @@ def get_net(date_str: str):
     df = df.sort_values("Datetime", kind="mergesort").set_index("Datetime").resample("15T").sum().reset_index()
     return df[["Datetime", "Net"]]
 
+
+@st.cache_data(ttl=600, show_spinner=False)
+def get_entsoe_instances():
+    """List available InstanceCode values to pick the bidding zone/currency."""
+    eng = get_engine()
+    q = text("""
+        SELECT DISTINCT [InstanceCode]
+        FROM [ENTSOE].[DayAheadSpotPrice]
+        ORDER BY [InstanceCode]
+    """)
+    df = pd.read_sql(q, eng)
+    return df["InstanceCode"].tolist()
+
+
+
 # -------- Page entrypoint --------
 def render():
     st.header("Forecasting models evaluator (Day Ahead, Intraday, Actuals)")
 
     # --- UI ---
     date_str = st.date_input("Select date", value=date.today()).strftime("%Y-%m-%d")
-    show_net = st.toggle("Show Actual Net consumption and generation Profile", value=False)
+    show_net = st.toggle("Show actual net consumption and generation Profile", value=False)
 
     # Step 1: tiny call to get available runs (fast & cached)
     t0 = time.perf_counter()

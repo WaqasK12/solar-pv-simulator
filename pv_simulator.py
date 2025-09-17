@@ -43,7 +43,8 @@ def get_weather_data(latitude, longitude,tilt, azimuth, start_date="2024-01-01",
     	"timezone": "auto",
     	"tilt":tilt,
     	"azimuth": azimuth,
-    	"models": "best_match"
+    	"models": "best_match",
+        "timezone": "GMT",
     }
     responses = openmeteo.weather_api(url, params=params)
     

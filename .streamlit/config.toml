@@ -1,3 +1,6 @@
 [cache]
-data.max_entries = 200
-data.persist = true
+# Maximum number of entries to keep
+max_entries = 200
+
+# Persist cache on disk between runs
+persist = true

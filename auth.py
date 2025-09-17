@@ -10,8 +10,10 @@ USERS_FILE = os.path.join(DATA_DIR, "users.json")
 if not os.path.exists(DATA_DIR):
     os.makedirs(DATA_DIR)
 
-st.set_page_config(page_title="Solar Simulation Model", layout="centered")
-
+st.set_page_config(
+    page_title="Dynamic Energy Trading",
+    page_icon="images/det_logo.png",  # optional: shows in browser tab
+)
 
 # === Utilities ===
 def load_users():
@@ -42,6 +44,17 @@ def show_login():
     if st.session_state.get("show_login_form"):
         login_page()  # Show actual login/signup
         return
+    
+    # Top bar logo (aligned left)
+    st.markdown(
+        """
+        <div style="display:flex;align-items:center;justify-content:flex-start;">
+            <img src="images/det_logo.png" style="height:60px;">
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
 
     # CSS and Hero Section
     st.markdown("""
@@ -94,8 +107,8 @@ def show_login():
 
     st.markdown("""
     <div class="hero">
-        <h1>Solar Simulation <span>Model</span></h1>
-        <p>Generate accurate historical solar generation profiles for PV plants. <br>
+        <h1>EnerGridAnalytics <span>Hub</span></h1>
+        <p>Data analtyics and machine learning platform for BRP's and energy suppliers. <br>
         <br>
     </div>
     """, unsafe_allow_html=True)
@@ -106,31 +119,31 @@ def show_login():
             st.session_state.show_login_form = True
             st.rerun()
 
-    st.markdown("""
-    <div class="card-container">
-        <div class="card">
-            <div style="width:30px;height:30px;background:#d6f5e3;border-radius:6px;"></div>
-            <h4>Historical Analysis</h4>
-            <p>Generate detailed historical solar generation profiles based on meteorological data and PV system parameters.</p>
-        </div>
-        <div class="card">
-            <div style="width:30px;height:30px;background:#d8ebfd;border-radius:6px;"></div>
-            <h4>Location Specific</h4>
-            <p>Accurate simulation using precise latitude, longitude coordinates and local solar irradiance patterns.</p>
-        </div>
-        <div class="card">
-            <div style="width:30px;height:30px;background:#fff3c1;border-radius:6px;"></div>
-            <h4>Export Reports</h4>
-            <p>Download comprehensive reports in PDF and CSV formats for client presentations and analysis.</p>
-        </div>
-    </div>
-    <div class="footer">
-    </div>
-    """, unsafe_allow_html=True)
+    # st.markdown("""
+    # <div class="card-container">
+    #     <div class="card">
+    #         <div style="width:30px;height:30px;background:#d6f5e3;border-radius:6px;"></div>
+    #         <h4>Historical Analysis</h4>
+    #         <p>Generate detailed historical solar generation profiles based on meteorological data and PV system parameters.</p>
+    #     </div>
+    #     <div class="card">
+    #         <div style="width:30px;height:30px;background:#d8ebfd;border-radius:6px;"></div>
+    #         <h4>Location Specific</h4>
+    #         <p>Accurate simulation using precise latitude, longitude coordinates and local solar irradiance patterns.</p>
+    #     </div>
+    #     <div class="card">
+    #         <div style="width:30px;height:30px;background:#fff3c1;border-radius:6px;"></div>
+    #         <h4>Export Reports</h4>
+    #         <p>Download comprehensive reports in PDF and CSV formats for client presentations and analysis.</p>
+    #     </div>
+    # </div>
+    # <div class="footer">
+    # </div>
+    # """, unsafe_allow_html=True)
 
 # === Actual Login/Signup Page ===
 def login_page():
-    st.title("🔐 Sign In to SolarForecast")
+    st.title("🔐 Sign In ")
 
     tab = st.radio("Choose an option:", ["Login", "Sign Up"], horizontal=True)
 

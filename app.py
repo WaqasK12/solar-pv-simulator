@@ -40,9 +40,10 @@ if st.session_state.get("logged_in"):
     # Sidebar menu
     with st.sidebar:
         selected = option_menu(
-            "Navigation",
-            ["Dashboard", "Historical Data", "Forecast evaluator", "Settings"],
-            icons=["bar-chart", "plus-circle", "clock-history", "file-earmark-text", "gear"],
+            "",
+            ["Dashboard", "Historical Data", "Forecast evaluator", "Imbalance estimator – Backtesting",
+            "Profile simulator","Settings"],
+            icons=["bar-chart", "plus-circle", "clock-history", "file-earmark-text","layers", "gear"],
             menu_icon="cast",
             default_index=0,
         )
@@ -58,7 +59,9 @@ if st.session_state.get("logged_in"):
     page_module_map = {
         "Dashboard": "components.dashboard",
         "Historical Data": "components.history",
-        "Forecast evaluator": "components.reports",
+        "Forecast evaluator": "components.evaluator",
+        "Imbalance estimator – Backtesting": "components.imbalance",
+        "Profile simulator": "components.profile_simulator",
         "Settings": "components.settings",
     }
 
