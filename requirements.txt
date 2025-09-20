@@ -11,3 +11,4 @@ sqlalchemy
 openpyxl
 holidays
 Pillow
+scikit-learn
