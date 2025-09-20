@@ -6,10 +6,8 @@ requests-cache
 pandas
 numpy
 pytz
-<<<<<<< HEAD
 matplotlib
 sqlalchemy
-=======
 openpyxl
 holidays
 Pillow
